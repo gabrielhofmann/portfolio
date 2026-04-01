@@ -111,7 +111,7 @@ export default function Overlay() {
     const MIN_CELLS = 3;
     const MAX_CELLS = gridSize === 72 ? 30 : 9;
 
-    const texts = ["GHM", "777", "ERR", "SYS", "DEV", "SRC"];
+    const texts = ["GHM", "777", "ERR", "SYS", "DEV", "SRC", "LIB", "VAR", "API", "MVP", "ENV", "???", "KEY", "GIT", "NPM", "SSH", "WWW", "DNS", "APP", "LOG"];
 
     const runScrambleLoop = () => {
       const amount = gsap.utils.random(MIN_CELLS, MAX_CELLS, 1);

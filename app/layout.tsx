@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
-import {
-  Poppins,
-  Unica_One,
-  Space_Grotesk,
-  Orbitron,
-} from "next/font/google";
+import { Poppins, Unica_One, Space_Grotesk, Orbitron, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import Cursor from "@/components/cursor/Cursor";
+import SmoothScrollProvider from "@/components/scroll/SmoothScrollProvider";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -17,6 +13,12 @@ const poppins = Poppins({
 const orbitron = Orbitron({
   variable: "--font-orbitron",
   weight: ["400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+});
+
+const bebas = Bebas_Neue({
+  variable: "--font-bebas",
+  weight: ["400"],
   subsets: ["latin"],
 });
 
@@ -45,11 +47,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${unica.variable} ${grotesk.variable} ${orbitron.variable} h-full antialiased`}
+      className={`${poppins.variable} ${unica.variable} ${grotesk.variable} ${orbitron.variable} ${bebas.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <Cursor />
-        {children}
+        <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>
   );

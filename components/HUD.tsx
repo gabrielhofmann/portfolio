@@ -125,9 +125,7 @@ export default function HUD() {
   const formatUptime = () => {
     const m = Math.floor(uptime / 60);
     const s = uptime % 60;
-    return `${m.toString().padStart(2, "0")}:${s
-      .toString()
-      .padStart(2, "0")}`;
+    return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
   };
 
   return (
@@ -138,51 +136,85 @@ export default function HUD() {
 
       <div className="flex w-full h-full gap-6">
         {/* LEFT */}
-        <div className="space-y-4">
+        <div className="space-y-4 w-1/2">
           <div>
-            <p>AUTHOR: G.H.M</p>
-            <p>INSTANCE: PORTFOLIO_V1</p>
+            <p className="text-gray border-b-2 border-dotted border-orange py-1 flex justify-between">
+              AUTHOR: <span className="text-orange">G.H.M</span>
+            </p>
+            <p className="text-gray border-b-2 border-dotted border-orange py-1 flex justify-between">
+              INSTANCE: <span className="text-orange">PORTFOLIO_V1</span>
+            </p>
           </div>
 
           <div>
-            <p>
-              DEVICE: {viewport.w > 768 ? "DESKTOP" : "MOBILE"}
+            <p className="text-gray border-b-2 border-dotted border-orange py-1 flex justify-between">
+              DEVICE: <span className="text-orange">{viewport.w > 768 ? "DESKTOP" : "MOBILE"}</span>
             </p>
-            <p>
-              VIEWPORT: {viewport.w} x {viewport.h}
+            <p className="text-gray border-b-2 border-dotted border-orange py-1 flex justify-between">
+              VIEWPORT:{" "}
+              <span className="text-orange">
+                {viewport.w} x {viewport.h}
+              </span>
             </p>
-            <p>PIXEL_RATIO: {pixelRatio}</p>
-            <p>FPS: {fps}</p>
+            <p className="text-gray border-b-2 border-dotted border-orange py-1 flex justify-between">
+              PIXEL_RATIO: <span className="text-orange">{pixelRatio}</span>
+            </p>
+            <p className="text-gray border-b-2 border-dotted border-orange py-1 flex justify-between">
+              FPS: <span className="text-orange">{fps}</span>
+            </p>
           </div>
 
           <div>
-            <p>MOUSE_X: {mouse.x}</p>
-            <p>MOUSE_Y: {mouse.y}</p>
-            <p>INPUT: {input}</p>
+            <p className="text-gray border-b-2 border-dotted border-orange py-1 flex justify-between">
+              MOUSE_X: <span className="text-orange">{mouse.x}</span>
+            </p>
+            <p className="text-gray border-b-2 border-dotted border-orange py-1 flex justify-between">
+              MOUSE_Y:<span className="text-orange">{mouse.y}</span>
+            </p>
+            <p className="text-gray border-b-2 border-dotted border-orange py-1 flex justify-between">
+              INPUT:<span className="text-orange">{input}</span>
+            </p>
           </div>
         </div>
 
         {/* RIGHT */}
-        <div className="space-y-4">
+        <div className="space-y-4 w-1/2">
           <div>
-            <p>
-              CONNECTION: {isOnline ? "ONLINE" : "OFFLINE"}
+            <p className="text-gray border-b-2 border-dotted border-orange py-1 flex justify-between">
+              CONNECTION:{" "}
+              <span className="text-orange">
+                {isOnline ? "ONLINE" : "OFFLINE"}
+              </span>
             </p>
-            <p>TIME: {time}</p>
-            <p>UPTIME: {formatUptime()}</p>
+            <p className="text-gray border-b-2 border-dotted border-orange py-1 flex justify-between">
+              TIME:<span className="text-orange">{time}</span>
+            </p>
+            <p className="text-gray border-b-2 border-dotted border-orange py-1 flex justify-between">
+              UPTIME: <span className="text-orange">{formatUptime()}</span>
+            </p>
           </div>
 
           <div>
             {battery !== null && (
-              <p>BATTERY: {battery}%</p>
+              <p className="text-gray border-b-2 border-dotted border-orange py-1 flex justify-between">
+                BATTERY:<span className="text-orange">{battery}</span>%
+              </p>
             )}
           </div>
 
           <div>
-            <p>LANG: {language}</p>
-            <p>OS: {os}</p>
-            <p>BROWSER: {browser}</p>
-            <p>REGION: {region}</p>
+            <p className="text-gray border-b-2 border-dotted border-orange py-1 flex justify-between">
+              LANG:<span className="text-orange">{language}</span>
+            </p>
+            <p className="text-gray border-b-2 border-dotted border-orange py-1 flex justify-between">
+              OS:<span className="text-orange">{os}</span>
+            </p>
+            <p className="text-gray border-b-2 border-dotted border-orange py-1 flex justify-between">
+              BROWSER: <span className="text-orange">{browser}</span>
+            </p>
+            <p className="text-gray border-b-2 border-dotted border-orange py-1 flex justify-between">
+              REGION: <span className="text-orange">{region}</span>
+            </p>
           </div>
         </div>
       </div>
